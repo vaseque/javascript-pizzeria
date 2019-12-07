@@ -83,7 +83,7 @@
 
             /* START: click event listener to trigger */
 
-            thisProduct.element.addEventListener('click', function(event) {
+            clickHeader.addEventListener('click', function(event) {
 
                 /* prevent default action for event */
 
@@ -95,7 +95,7 @@
 
                 /* find all active products */
 
-                const activeProducts = document.querySelectorAll('.product.active');
+                const activeProducts = document.querySelectorAll(select.all.menuProductsActive);
 
                 /* START LOOP: for each active product */
 
