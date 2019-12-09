@@ -78,6 +78,7 @@
         }
 
         getElements() {
+
             const thisProduct = this;
 
             thisProduct.accordionTrigger = thisProduct.element.querySelector(select.menuProduct.clickable);
@@ -90,9 +91,10 @@
 
 
         initAccordion() {
+
             const thisProduct = this;
 
-            const clickHeader = thisProduct.element.querySelector(select.menuProduct.clickable);
+            const clickHeader = thisProduct.accordionTrigger;
 
             clickHeader.addEventListener('click', function(event) {
 
@@ -121,7 +123,6 @@
         initOrderForm() {
 
             const thisProduct = this;
-            console.log('initOrderForm');
 
             thisProduct.form.addEventListener('submit', function(event) {
                 event.preventDefault();
@@ -144,12 +145,38 @@
         processOrder() {
 
             const thisProduct = this;
-            console.log('processOrder');
 
             const formData = utils.serializeFormToObject(thisProduct.form);
-            console.log('formData:', formData);
+
+            let price = thisProduct.data.price;
+
+            for (let paramId in thisProduct.data.params) {
+
+                const param = thisProduct.data.params[paramId];
+
+                for (let optionId in param.options) {
+
+                    const option = param.options[optionId];
+
+                    const optionSelected = formData.hasOwnProperty(paramId) && formData[paramId].indexOf(optionId) > -1;
+
+                    if (optionSelected && !option.default) {
+
+                        price += option.price;
+
+                    } else if (!optionSelected && option.default) {
+
+                        price -= option.price;
+
+                    }
+                }
+            }
+
+            thisProduct.priceElem.innerHTML = price;
+
         }
     }
+
     const app = {
         initMenu: function() {
             const thisApp = this;
