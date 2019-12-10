@@ -172,18 +172,19 @@
 
                     }
 
-                    const menuImages = thisProduct.imageWrapper[class="'.' + paramId + '-' + optionId"];//['`.${paramId}-${optionId}`']
-console.log(menuImages);
+                    const menuImages = thisProduct.imageWrapper.querySelectorAll(`.${paramId}-${optionId}`);//('.' + paramId + '-' + optionId);
+
                         if (optionSelected) {
-                            for (let image in menuImages) {
+
+                            for (let image of menuImages) {
 
                             image.classList.add(classNames.menuProduct.imageVisible);
 
                             }
 
-                        } else (!optionSelected) {
+                        } else if (!optionSelected) {
 
-                            for (let image in menuImages) {
+                            for (let image of menuImages) {
 
                             image.classList.remove(classNames.menuProduct.imageVisible);
 
