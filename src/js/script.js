@@ -430,7 +430,7 @@
 
             const thisCart = this;
 
-            const index = thisCart.products.indexOf('cartProduct');
+            const index = thisCart.products.indexOf(cartProduct);
 
             thisCart.products.splice(index, 1);
 
