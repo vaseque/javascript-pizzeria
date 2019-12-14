@@ -448,9 +448,7 @@
 
             for (let product of thisCart.products) {
 
-                product.getData();
-
-                payload.products.push(product);
+                payload.products.push(product.getData());
 
             }
 
@@ -625,14 +623,14 @@
 
             const thisCartProduct = this;
 
-            thisCartProduct.data = {
+            return {
 
                 id: thisCartProduct.id,
                 name: thisCartProduct.name,
                 price: thisCartProduct.price,
                 priceSingle: thisCartProduct.priceSingle,
                 amount: thisCartProduct.amount,
-                params: thisCartProduct.params,
+                params: JSON.parse(JSON.stringify(thisCartProduct.params)),
             }
         }
     }
