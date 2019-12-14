@@ -630,7 +630,7 @@
                 price: thisCartProduct.price,
                 priceSingle: thisCartProduct.priceSingle,
                 amount: thisCartProduct.amount,
-                params: JSON.parse(JSON.stringify(thisCartProduct.params)),
+                params: thisCartProduct.params,
             }
         }
     }
