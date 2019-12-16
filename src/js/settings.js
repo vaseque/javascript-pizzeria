@@ -1,6 +1,6 @@
 /* eslint-disable linebreak-style */
-
-import Handlebars from './utils.js';
+/* eslint-disable no-undef */
+/* Global Handlebars */
 
 export const select = {
     templateOf: {
