@@ -1,7 +1,5 @@
-/* eslint-disable linebreak-style */
-import {select} from '../settings.js';
+import { select } from '../settings.js';
 import AmountWidget from './AmountWidget.js';
-
 
 class CartProduct {
 
@@ -42,7 +40,7 @@ class CartProduct {
 
         thisCartProduct.amountWidget = new AmountWidget(thisCartProduct.dom.amountWidget);
 
-        thisCartProduct.dom.amountWidget.addEventListener('updated', function() {
+        thisCartProduct.dom.amountWidget.addEventListener('updated', function () {
 
             thisCartProduct.amount = thisCartProduct.amountWidget.value;
 
@@ -75,12 +73,12 @@ class CartProduct {
 
         const thisCartProduct = this;
 
-        thisCartProduct.dom.edit.addEventListener('click', function(event) {
+        thisCartProduct.dom.edit.addEventListener('click', function (event) {
 
             event.preventDefault();
         });
 
-        thisCartProduct.dom.remove.addEventListener('click', function(event) {
+        thisCartProduct.dom.remove.addEventListener('click', function (event) {
 
             event.preventDefault();
 

@@ -1,21 +1,20 @@
-
-import {settings, select} from './settings.js';
+import { settings, select } from './settings.js';
 import Product from './components/Product.js';
 import Cart from './components/Cart.js';
 
 const app = {
-
-    initMenu: function() {
-
+    initMenu: function () {
         const thisApp = this;
 
         for (let productData in thisApp.data.products) {
-            new Product(thisApp.data.products[productData].id, thisApp.data.products[productData]);
+            new Product(
+                thisApp.data.products[productData].id,
+                thisApp.data.products[productData]
+            );
         }
     },
 
-    initCart: function() {
-
+    initCart: function () {
         const thisApp = this;
 
         const cartElem = document.querySelector(select.containerOf.cart);
@@ -24,15 +23,12 @@ const app = {
 
         thisApp.productList = document.querySelector(select.containerOf.menu);
 
-        thisApp.productList.addEventListener('add-to-cart', function(event) {
-
+        thisApp.productList.addEventListener('add-to-cart', function (event) {
             app.cart.add(event.detail.product);
         });
-
     },
 
-    initData: function() {
-
+    initData: function () {
         const thisApp = this;
 
         thisApp.data = {};
@@ -40,27 +36,22 @@ const app = {
         const url = settings.db.url + '/' + settings.db.product;
 
         fetch(url)
-
-            .then(function(rawResponse) {
-
+            .then(function (rawResponse) {
                 return rawResponse.json();
             })
-            .then(function(parsedResponse) {
-
+            .then(function (parsedResponse) {
                 thisApp.data.products = parsedResponse;
 
                 thisApp.initMenu();
             });
     },
 
-    init: function() {
-
+    init: function () {
         const thisApp = this;
 
         thisApp.initData();
         thisApp.initCart();
-
-    },
+    }
 };
 
 app.init();

@@ -1,6 +1,4 @@
-/* eslint-disable linebreak-style */
-
-import {select, classNames, templates} from '../settings.js';
+import { select, classNames, templates } from '../settings.js';
 import AmountWidget from './AmountWidget.js';
 import utils from '../utils.js';
 
@@ -51,7 +49,7 @@ class Product {
 
         const clickHeader = thisProduct.accordionTrigger;
 
-        clickHeader.addEventListener('click', function(event) {
+        clickHeader.addEventListener('click', function (event) {
 
             event.preventDefault();
 
@@ -74,18 +72,18 @@ class Product {
 
         const thisProduct = this;
 
-        thisProduct.form.addEventListener('submit', function(event) {
+        thisProduct.form.addEventListener('submit', function (event) {
             event.preventDefault();
             thisProduct.processOrder();
         });
 
         for (let input of thisProduct.formInputs) {
-            input.addEventListener('change', function() {
+            input.addEventListener('change', function () {
                 thisProduct.processOrder();
             });
         }
 
-        thisProduct.cartButton.addEventListener('click', function(event) {
+        thisProduct.cartButton.addEventListener('click', function (event) {
             event.preventDefault();
             thisProduct.processOrder();
             thisProduct.addToCart();
@@ -169,7 +167,7 @@ class Product {
 
         thisProduct.amountWidget = new AmountWidget(thisProduct.amountWidgetElem);
 
-        thisProduct.amountWidgetElem.addEventListener('updated', function() {
+        thisProduct.amountWidgetElem.addEventListener('updated', function () {
 
             thisProduct.processOrder();
 

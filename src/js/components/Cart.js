@@ -1,6 +1,4 @@
-/* eslint-disable linebreak-style */
-
-import {settings, select, classNames, templates} from '../settings.js';
+import { settings, select, classNames, templates } from '../settings.js';
 import CartProduct from './CartProduct.js';
 import utils from '../utils.js';
 
@@ -52,23 +50,23 @@ class Cart {
 
         const thisCart = this;
 
-        thisCart.dom.toggleTrigger.addEventListener('click', function() {
+        thisCart.dom.toggleTrigger.addEventListener('click', function () {
 
             thisCart.dom.wrapper.classList.toggle(classNames.cart.wrapperActive);
 
         });
 
-        thisCart.dom.productList.addEventListener('updated', function() {
+        thisCart.dom.productList.addEventListener('updated', function () {
 
             thisCart.update();
         });
 
-        thisCart.dom.productList.addEventListener('remove', function() {
+        thisCart.dom.productList.addEventListener('remove', function () {
 
             thisCart.remove(event.detail.cartProduct);
         });
 
-        thisCart.dom.form.addEventListener('submit', function(event) {
+        thisCart.dom.form.addEventListener('submit', function (event) {
 
             event.preventDefault();
 
@@ -114,11 +112,11 @@ class Cart {
 
         fetch(url, options)
 
-            .then(function(response) {
+            .then(function (response) {
 
                 return response.json();
 
-            }) .then(function(parsedResponse) {
+            }).then(function (parsedResponse) {
 
                 console.log('parsedResponse', parsedResponse);
             });
