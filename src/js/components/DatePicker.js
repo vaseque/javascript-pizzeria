@@ -1,6 +1,7 @@
 import BaseWidget from './BaseWidget.js';
 import { settings, select } from '../settings.js';
 import utils from '../utils.js';
+/* global flatpickr*/
 
 class DatePicker extends BaseWidget {
     constructor(wrapper) {
