@@ -182,8 +182,6 @@ class Product {
 
         thisProduct.amount = thisProduct.amountWidget.value;
 
-        //app.cart.add(thisProduct);
-
         const event = new CustomEvent('add-to-cart', {
 
             bubbles: true,
