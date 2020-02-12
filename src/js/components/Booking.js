@@ -164,9 +164,9 @@ class Booking {
 
         for (let table of thisBooking.dom.tables) {
 
-            const tableId = parseInt(table.getAttribute(settings.booking.tableIdAttribute));
-
             table.addEventListener('click', function () {
+
+                const tableId = parseInt(table.getAttribute(settings.booking.tableIdAttribute));
 
                 if (typeof thisBooking.booked[thisBooking.date][thisBooking.hour] == 'undefined'
                     || !thisBooking.booked[thisBooking.date][thisBooking.hour].includes(tableId)) {
@@ -174,8 +174,11 @@ class Booking {
                     table.classList.add(classNames.booking.tableSelected);
 
                     thisBooking.selectedTable = tableId;
+
                 }
             });
+
+            break;
         }
     }
 
