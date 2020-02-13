@@ -155,6 +155,7 @@ class Booking {
             } else {
                 table.classList.remove(classNames.booking.tableBooked);
                 table.classList.remove(classNames.booking.tableSelected);
+                thisBooking.selectedTable = '';
             }
         }
     }
@@ -171,14 +172,14 @@ class Booking {
                 if (typeof thisBooking.booked[thisBooking.date][thisBooking.hour] == 'undefined'
                     || !thisBooking.booked[thisBooking.date][thisBooking.hour].includes(tableId)) {
 
-                    table.classList.add(classNames.booking.tableSelected);
+                    if (!thisBooking.selectedTable) {
+                        table.classList.add(classNames.booking.tableSelected);
 
-                    thisBooking.selectedTable = tableId;
-
+                        thisBooking.selectedTable = tableId;
+                        console.log(thisBooking.selectedTable);
+                    }
                 }
             });
-
-            break;
         }
     }
 
