@@ -104,6 +104,7 @@ const app = {
     init: function () {
         const thisApp = this;
 
+        //thisApp.initMainPage();
         thisApp.initBooking();
         thisApp.initPages();
         thisApp.initData();

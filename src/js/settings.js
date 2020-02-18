@@ -4,13 +4,14 @@ export const select = {
     templateOf: {
         menuProduct: '#template-menu-product',
         cartProduct: '#template-cart-product',
-        bookingWidget: '#template-booking-widget'
+        bookingWidget: '#template-booking-widget',
     },
     containerOf: {
         menu: '#product-list',
         cart: '#cart',
         pages: '#pages',
-        booking: '.booking-wrapper'
+        booking: '.booking-wrapper',
+        mainPage: '#main-page'
     },
     all: {
         menuProducts: '#product-list > .product',
