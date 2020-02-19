@@ -15,13 +15,8 @@ const app = {
     initPages: function () {
         const thisApp = this;
 
-        //thisApp.activatePage(mainPage);
-
-        const mainPage = document.querySelector(select.containerOf.mainPage);
         thisApp.pages = document.querySelector(select.containerOf.pages).children;
         thisApp.navLinks = document.querySelectorAll(select.nav.links);
-
-
 
         const idFromHash = window.location.hash.replace('#/', '');
 
@@ -48,9 +43,6 @@ const app = {
                 window.location.hash = '#/' + id;
             });
         }
-
-
-
     },
 
     activatePage: function (pageId) {
