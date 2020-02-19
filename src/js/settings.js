@@ -68,7 +68,7 @@ export const select = {
         formButton: '.order-confirmation [type="submit"]'
     },
     nav: {
-        links: '.main-nav a'
+        links: '.main-page-nav a'
     }
 };
 
