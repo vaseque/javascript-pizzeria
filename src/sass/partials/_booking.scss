@@ -82,12 +82,27 @@
 
   }
 
-  &__fill {
+  &.green {
     background: $color-success;
     transition-timing-function: cubic-bezier(0, 1, 0, 1);
     transition: width 100ms;
     box-shadow: none;
   }
+  
+  &.yellow {
+    background: $color-warning;
+    transition-timing-function: cubic-bezier(0, 1, 0, 1);
+    transition: width 100ms;
+    box-shadow: none;
+  }
+  
+  &.red {
+    background: $color-danger;
+    transition-timing-function: cubic-bezier(0, 1, 0, 1);
+    transition: width 100ms;
+    box-shadow: none;
+  }
+
 }
 
 .flatpickr-day {

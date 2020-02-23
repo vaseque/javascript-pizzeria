@@ -78,7 +78,7 @@ class Booking {
 
         for (let item of bookings) {
 
-            thisBooking.makeBooked(item.date, item.hour, item.duration, item.table);
+            thisBooking.makeBooked(item.date, item.hour, item.duration, item.table)
         }
 
         for (let item of eventsCurrent) {
@@ -103,6 +103,7 @@ class Booking {
     }
 
     makeBooked(date, hour, duration, table) {
+
         const thisBooking = this;
 
         if (typeof thisBooking.booked[date] == 'undefined') {
@@ -114,6 +115,7 @@ class Booking {
         for (let hourBlock = startHour; hourBlock < startHour + duration; hourBlock += 0.5) {
 
             if (typeof thisBooking.booked[date][hourBlock] == 'undefined') {
+
                 thisBooking.booked[date][hourBlock] = [];
             }
 
@@ -134,6 +136,7 @@ class Booking {
             ||
             typeof thisBooking.booked[thisBooking.date][thisBooking.hour] == 'undefined'
         ) {
+
             allAvailable = true;
         }
 
@@ -151,12 +154,39 @@ class Booking {
                 &&
                 thisBooking.booked[thisBooking.date][thisBooking.hour].includes(tableId)
             ) {
+
                 table.classList.add(classNames.booking.tableBooked);
+
             } else {
+
                 table.classList.remove(classNames.booking.tableBooked);
                 table.classList.remove(classNames.booking.tableSelected);
                 thisBooking.selectedTable = '';
             }
+
+        }
+
+        const hourSlider = thisBooking.dom.hourPicker.querySelector(select.widgets.hourPicker.rangeSlider);
+
+        const greenBar = classNames.booking.easyBookingSlider;
+        const yellowBar = classNames.booking.partlyBookedSlider;
+        const redBar = classNames.booking.fullyBookedSlider;
+
+        if (typeof thisBooking.booked[thisBooking.date][thisBooking.hour] == 'undefined'
+            || thisBooking.booked[thisBooking.date][thisBooking.hour].length < 2) {
+
+            hourSlider.classList.remove(yellowBar, redBar);
+            hourSlider.classList.add(greenBar);
+
+        } else if (thisBooking.booked[thisBooking.date][thisBooking.hour].length === 2) {
+
+            hourSlider.classList.remove(greenBar, redBar);
+            hourSlider.classList.add(yellowBar);
+
+        } else if (thisBooking.booked[thisBooking.date][thisBooking.hour].length > 2) {
+
+            hourSlider.classList.remove(greenBar, yellowBar);
+            hourSlider.classList.add(redBar);
         }
     }
 
@@ -173,10 +203,10 @@ class Booking {
                     || !thisBooking.booked[thisBooking.date][thisBooking.hour].includes(tableId)) {
 
                     if (!thisBooking.selectedTable) {
+
                         table.classList.add(classNames.booking.tableSelected);
 
                         thisBooking.selectedTable = tableId;
-                        console.log(thisBooking.selectedTable);
                     }
                 }
             });
