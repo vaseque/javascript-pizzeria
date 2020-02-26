@@ -207,14 +207,12 @@ class Booking {
                     if (!thisBooking.selectedTable.includes(tableId)) {
 
                         table.classList.add(classNames.booking.tableSelected);
-                        thisBooking.selectedTable.push(tableId)
+                        thisBooking.selectedTable.push(tableId);
 
                     } else {
 
                         return thisBooking.selectedTable;
                     }
-
-                    console.log(thisBooking.selectedTable);
                 }
             });
         }

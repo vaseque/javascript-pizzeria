@@ -108,7 +108,7 @@ class Product {
 
                 const option = param.options[optionId];
 
-                const optionSelected = formData.hasOwnProperty(paramId) && formData[paramId].indexOf(optionId) > -1;
+                const optionSelected = formData.hasOwnProperty(paramId) && formData[paramId].indexOf(optionId) > - 1;
 
                 if (optionSelected && !option.default) {
 
